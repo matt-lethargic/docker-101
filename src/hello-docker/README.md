@@ -1,3 +1,7 @@
+# Hello Docker
+
+This project is used as a simple demo for multi-stage docker builds
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
