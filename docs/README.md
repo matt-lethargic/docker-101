@@ -80,9 +80,11 @@ and run it
 
 Go to https://hub.docker.com/repository/create and create a repo
 
-
+Name and tag image correctly for repository. Use `docker images` to get name ang tag
 
 ```bash
-docker tag local-image:tagname new-repo:tagname
-docker push new-repo:tagname
+sudo docker tag wemadeweb:latest mattlethargic/wemadeweb:test
+sudo docker push mattlethargic/wemadeweb:test
 ```
+
+Don't forget to `sudo docker login`!
