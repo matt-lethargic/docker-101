@@ -20,6 +20,6 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-       - run: |
+      - run: |
           docker build . -t matthunt.azurecr.io/appdb:${{ github.sha }}
           docker push matthunt.azurecr.io/appdb:${{ github.sha }}
