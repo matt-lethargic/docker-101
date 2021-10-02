@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - uses: azure/docker-login@v1
+        with:
+          login-server: matthunt.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+       - run: |
+          docker build . -t matthunt.azurecr.io/appdb:${{ github.sha }}
+          docker push matthunt.azurecr.io/appdb:${{ github.sha }}
